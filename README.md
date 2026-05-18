@@ -13,7 +13,7 @@ open, sharing findings at each milestone.
 
 ## Read the project brief
 
-[View the project brief](https://amogendukwe-png.github.io/diaspora-passport-study/brief/)
+[View the project brief]([https://amogendukwe-png.github.io/Nigeria-diaspora-passport-application/brief/]
 
 ## Contents
 
