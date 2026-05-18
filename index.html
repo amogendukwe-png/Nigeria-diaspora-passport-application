@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Diaspora Passport Study — Project Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,500;0,700;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1c1c1c; --ink-mid: #444; --ink-muted: #777; --ink-faint: #aaa;
+    --paper: #faf9f7; --rule: #e4e1da;
+    --accent: #c94a1e; --accent-light: #fdf1ed;
+    --teal: #1a6b5a; --teal-light: #edf6f3;
+    --amber: #a06a00; --amber-light: #fdf6e3;
+  }
+  html { background: var(--paper); color: var(--ink); }
+  body { font-family: 'DM Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.75; max-width: 780px; margin: 0 auto; padding: 80px 40px 120px; }
+  h1 { font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 38px; line-height: 1.15; color: var(--ink); }
+  h2 { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 22px; line-height: 1.3; color: var(--ink); margin-top: 52px; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+  h3 { font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 13px; color: var(--ink-mid); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 28px; margin-bottom: 8px; }
+  p { margin-bottom: 14px; color: var(--ink-mid); }
+  p.lead { font-size: 17px; line-height: 1.7; color: var(--ink); font-weight: 300; margin-bottom: 20px; }
+  strong { font-weight: 500; color: var(--ink); }
+  a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  ul, ol { padding-left: 20px; margin-bottom: 14px; color: var(--ink-mid); }
+  li { margin-bottom: 6px; }
+  li strong { color: var(--ink); }
+
+  .cover { margin-bottom: 60px; padding-bottom: 40px; border-bottom: 2px solid var(--ink); }
+  .project-label { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  .subtitle { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 300; font-size: 20px; color: var(--ink-mid); margin-top: 10px; margin-bottom: 28px; line-height: 1.4; }
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 28px; }
+  .meta-label { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 4px; }
+  .meta-value { font-size: 14px; color: var(--ink); }
+
+  .callout { border-radius: 4px; padding: 16px 20px; margin: 24px 0; }
+  .callout-problem { background: var(--accent-light); border-left: 3px solid var(--accent); }
+  .callout-note { background: var(--amber-light); border-left: 3px solid var(--amber); }
+  .callout p { margin-bottom: 6px; }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout-label { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 8px; }
+  .callout-problem .callout-label { color: var(--accent); }
+  .callout-note .callout-label { color: var(--amber); }
+
+  table { width: 100%; border-collapse: collapse; margin: 20px 0 28px; font-size: 14px; }
+  thead th { font-weight: 500; font-size: 11px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); padding: 8px 12px; border-bottom: 1px solid var(--rule); text-align: left; }
+  tbody td { padding: 11px 12px; border-bottom: 1px solid var(--rule); color: var(--ink-mid); vertical-align: top; line-height: 1.55; font-size: 14px; }
+  tbody td:first-child { color: var(--ink); font-weight: 500; }
+  tbody tr:last-child td { border-bottom: none; }
+
+  .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin: 20px 0 28px; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+  .scope-col { padding: 20px; }
+  .scope-col:first-child { border-right: 1px solid var(--rule); }
+  .scope-head { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
+  .scope-col ul { margin: 0; padding-left: 18px; }
+  .scope-col li { font-size: 14px; color: var(--ink-mid); margin-bottom: 8px; line-height: 1.5; }
+
+  .phase-grid { display: grid; gap: 10px; margin: 20px 0; }
+  .phase-card { border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px; display: grid; grid-template-columns: 100px 1fr 90px; gap: 16px; align-items: start; }
+  .communicate-card { border: 1px solid var(--rule); border-radius: 6px; padding: 16px 20px; display: grid; grid-template-columns: 100px 1fr 90px; gap: 16px; align-items: start; background: var(--accent-light); border-color: var(--accent); }
+  .phase-num { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); padding-top: 3px; }
+  .comm-num { font-size: 11px; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); padding-top: 3px; }
+  .phase-name { font-family: 'Fraunces', Georgia, serif; font-weight: 500; font-size: 17px; color: var(--ink); display: block; margin-bottom: 6px; }
+  .phase-desc { font-size: 14px; color: var(--ink-mid); line-height: 1.55; }
+  .phase-status { text-align: right; padding-top: 3px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .badge-active { background: var(--teal-light); color: var(--teal); }
+  .badge-upcoming { background: #f0f0ee; color: var(--ink-muted); }
+  .badge-ongoing { background: var(--accent-light); color: var(--accent); border: 1px solid var(--accent); }
+  .badge-tbd { background: #f0f0ee; color: var(--ink-faint); font-style: italic; }
+
+  .doc-footer { margin-top: 80px; padding-top: 20px; border-top: 1px solid var(--rule); font-size: 12px; color: var(--ink-faint); display: flex; justify-content: space-between; }
+
+  @media print {
+    body { padding: 40px; font-size: 13px; }
+    h1 { font-size: 28px; }
+    h2 { font-size: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="project-label">Research project brief — v1.1 · May 2026</div>
+  <h1>The Diaspora Passport Study</h1>
+  <div class="subtitle">A user centred investigation into the Nigerian passport application and renewal experiences from abroad</div>
+  <div class="meta-grid">
+    <div>
+      <div class="meta-label">Status</div>
+      <div class="meta-value">Active — discovery phase</div>
+    </div>
+    <div>
+      <div class="meta-label">Geographic focus</div>
+      <div class="meta-value">US, UK, Canada (initial)</div>
+    </div>
+    <div>
+      <div class="meta-label">Nature of work</div>
+      <div class="meta-value">Independent research — public interest</div>
+    </div>
+    <div>
+      <div class="meta-label">Methodology</div>
+      <div class="meta-value">User centred design (UCD) research</div>
+    </div>
+    <div>
+      <div class="meta-label">Output type</div>
+      <div class="meta-value">Milestone based, publicly released</div>
+    </div>
+  </div>
+</div>
+
+
+<h2>Context and background</h2>
+
+<p class="lead">The Nigerian passport is a gateway to work, family, economic participation, and legal standing abroad. As of 2026, there are an estimated 17 to 20 million Nigerians in the diaspora. For these Nigerians, renewing or applying for a passport from outside Nigeria is complex, expensive, and consistently difficult.</p>
+
+<p>In recent years, the <a href="https://immigration.gov.ng">Nigeria Immigration Service (NIS)</a> and the <a href="https://nimc.gov.ng">National Identity Management Commission (NIMC)</a> have made meaningful strides in simplifying the passport application process. As recently as August 2025, a contactless biometric passport renewal system was launched. The diaspora enrolment portal and online portals were upgraded both in design and functionality.</p>
+
+<p>On paper, the infrastructure is improving, and on some level it is. Since the public launch in August 2025, an estimated 15,000 passports have been processed and issued to Nigerians through the new system.</p>
+
+<p>But there is a gap between how the system works and what citizens actually experience. The NIN (National Identification Number) is now mandatory for all passport applications and renewals. For diaspora users, the process of obtaining or retrieving a NIN is itself a service failure: broken portals, disconnected phone numbers listed in official directories, the absence of Nigerian phone numbers required for digital NIN retrieval, and enrolment centres that are hours of travel away. These are pre passport application problems that must be cleared before the passport journey even begins.</p>
+
+<p>These stories are not edge cases. They surface all over social media, in WhatsApp groups, and in the lived experiences of the people initiating this study. Someone arrived at Kotoka International Airport in Accra only to be told his passport — with less than 6 months to expiry — was not acceptable for entry, and he had not been warned this was a risk. Another had to travel from Austin, Texas, to Houston to reach a functioning NIN enrolment centre, after finding that the website listings for the closer branches in Austin and San Antonio listed contact information that was disconnected or wrong. Yet another applicant had to buy a new Android phone just to complete the online biometrics because the app was not accessible on their iPhone. These are not system glitches or isolated cases. They are design failures.</p>
+
+<div class="callout callout-problem">
+  <div class="callout-label">The core problem</div>
+  <p>The Nigerian passport service was not designed with the diaspora user as a primary persona. The way the current service was designed — from the infrastructure to the information architecture, user flow, and the dependencies — assumes the user is applying from Nigeria, or already has some basic requirements such as a Nigerian phone number and a valid NIN. As a result, over 15 million Nigerians abroad face a service that was not designed for their unique needs.</p>
+</div>
+
+
+<h2>Problem statement</h2>
+
+<p>Nigerian citizens living abroad face significant structural barriers when attempting to apply for or renew their passports. These barriers are not caused by the individual's incompetence or lack of effort. The service fails them in 5 ways.</p>
+
+<ul>
+  <li><strong>Infrastructure dependencies.</strong> NIN retrieval cannot be fulfilled through the same channels available to diaspora users.</li>
+  <li><strong>Inconsistent information.</strong> Information on the process varies across official digital touchpoints with inaccurate, outdated, or broken content.</li>
+  <li><strong>Limited physical touchpoints.</strong> There is limited physical access outside a small number of embassies and consulates in major cities.</li>
+  <li><strong>Not proactive.</strong> The service does not communicate requirements proactively, leaving applicants to discover blockers reactively — often at significant cost.</li>
+  <li><strong>Introduced without prerequisites.</strong> New digital services (contactless renewal) were introduced without ensuring the prerequisite infrastructure (NIN retrieval, directory accuracy) is reliable for diaspora users.</li>
+</ul>
+
+<p>These challenges present consequences that extend beyond inconveniences to the user. Expired or inaccessible passports affect employment and residency status abroad, delay or prevent travel including emergency travel, reduce trust in the Nigerian government, and affect the government's ability to reliably contact and support its diaspora population.</p>
+
+<p>The economic implications are just as significant: inability to reliably apply for or renew passports leads to reduced remittances, reduced diaspora investment, and an indirect tax on the time and money citizens spend navigating a broken system. These causes are significant and underexplored.</p>
+
+
+<h2>Research objectives</h2>
+
+<p>We want to achieve 5 things with this study.</p>
+
+<ol>
+  <li><strong>Map the end to end service experience</strong> of diaspora Nigerians applying for or renewing passports, from trigger to completion (or abandonment), across multiple user segments and locations (US, UK, Canada, Africa).</li>
+  <li><strong>Identify the structural dependencies, edge cases, and infrastructure gaps</strong> in the current service — including the interplay between NIMC (NIN), NIS (passport), embassies, front end partners, and digital platforms.</li>
+  <li><strong>Understand and demonstrate the human cost</strong> of service failure: time lost, money spent, emotional burden carried, and life decisions affected by passport inaccessibility.</li>
+  <li><strong>Quantify and frame the broader impact</strong> on individual citizens, on the Nigerian government's relationship with its diaspora, and on the economy — to make the case for reform in terms that resonate with policy makers, not just designers.</li>
+  <li><strong>Generate clear, prioritised design opportunities</strong> that could meaningfully improve the service within the current policy and infrastructure constraints, and articulate what would require systemic reform.</li>
+</ol>
+
+
+<h2>Research questions</h2>
+
+<h3>Primary questions</h3>
+<ul>
+  <li>What is the actual end to end experience of a Nigerian diaspora citizen applying for or renewing a passport — including all prerequisites, dependencies, and failure points?</li>
+  <li>What are the most common points where users abandon the process, or face an irreversible failure in the current experience, and what causes them?</li>
+  <li>How does the experience differ across user segments based on their country of residence, passport status (first time vs renewal), NIN status, digital access, and proximity to embassy or consulate?</li>
+</ul>
+
+<h3>Infrastructure and system questions</h3>
+<ul>
+  <li>What are the formal dependencies between NIMC and NIS for passport processing, and how do diaspora users experience them in practice?</li>
+  <li>Where does the contactless renewal system work as intended, and where does it break down?</li>
+  <li>What role do Front End Partners (FEPs) play in diaspora NIN enrolment, and how accessible and reliable is that channel?</li>
+  <li>How accurate and current is the official information available to diaspora users across NIS, NIMC, embassy, and consulate websites?</li>
+</ul>
+
+<h3>Impact questions</h3>
+<ul>
+  <li>What decisions — employment, travel, residency applications, and family reunions — have been materially affected by passport inaccessibility?</li>
+  <li>What is the estimated economic cost to the diaspora, to remittance flows, and to Nigeria's soft power and credibility internationally?</li>
+  <li>How does this service failure interact with broader perceptions of the Nigerian state among its diaspora population?</li>
+</ul>
+
+
+<h2>Scope</h2>
+
+<div class="scope-grid">
+  <div class="scope-col">
+    <div class="scope-head">In scope</div>
+    <ul>
+      <li>Passport renewal and new applications for adult Nigerian citizens currently residing outside Nigeria</li>
+      <li>The NIN prerequisite process as experienced by diaspora users</li>
+      <li>Digital, telephone, and in person channels for both NIN and passport services</li>
+      <li>Primary geographies: United States, United Kingdom, and Canada (initial phase), with scope to expand to Europe and West Africa in later phases</li>
+      <li>Institutional actors: NIS, NIMC, Nigerian embassies, consulates, and accredited Front End Partners</li>
+    </ul>
+  </div>
+  <div class="scope-col">
+    <div class="scope-head">Out of scope</div>
+    <ul>
+      <li>Emergency travel documents and ETDs</li>
+      <li>Passport applications for minors (noted as a future extension)</li>
+      <li>Domestic (in Nigeria) passport applications, except as reference and comparison</li>
+      <li>Dual citizenship and renunciation processes</li>
+      <li>Detailed technical or cybersecurity audit of NIS/NIMC systems</li>
+    </ul>
+  </div>
+</div>
+
+<div class="callout callout-note">
+  <div class="callout-label">Note</div>
+  <p>This is an independent research study. The team has no formal access to NIS or NIMC internal systems or data. All service mapping and infrastructure analysis will be based on publicly available documentation, user accounts, and any stakeholder interviews we can arrange. Findings will reflect the citizen experience, not internal process documentation.</p>
+</div>
+
+
+<h2>Methodology</h2>
+
+<p>This study uses a user centred design (UCD) research methodology, structured around the double diamond model with adaptations for public service research. The approach is both rigorous and iterative: we release findings as they are validated, not when the study is complete.</p>
+
+<div class="phase-grid">
+  <div class="phase-card">
+    <div class="phase-num">Phase 1</div>
+    <div>
+      <span class="phase-name">Discover</span>
+      <p class="phase-desc">Desk research, review of secondary data, social media listening, initial journey mapping, and documentation of the current service landscape. We establish the known failure modes and gaps before primary research begins.</p>
+    </div>
+    <div class="phase-status"><span class="badge badge-active">Active</span></div>
+  </div>
+  <div class="phase-card">
+    <div class="phase-num">Phase 2</div>
+    <div>
+      <span class="phase-name">Define</span>
+      <p class="phase-desc">Qualitative interviews with diaspora users across US, UK, and Canada, service architecture mapping, infrastructure dependency analysis, and edge case cataloguing. This phase answers: what is actually happening, and why?</p>
+    </div>
+    <div class="phase-status"><span class="badge badge-upcoming">Upcoming</span></div>
+  </div>
+  <div class="phase-card">
+    <div class="phase-num">Phase 3</div>
+    <div>
+      <span class="phase-name">Develop</span>
+      <p class="phase-desc">Synthesis into insight themes. Expert interviews with embassy staff, FEPs, and policy contacts where accessible. Impact analysis across citizen, government, and economic dimensions. We articulate the design opportunity.</p>
+    </div>
+    <div class="phase-status"><span class="badge badge-upcoming">Upcoming</span></div>
+  </div>
+  <div class="phase-card">
+    <div class="phase-num">Phase 4</div>
+    <div>
+      <span class="phase-name">Design</span>
+      <p class="phase-desc">Using the insight themes and design opportunities from Phase 3, we will prototype a user centred passport application and renewal service for diaspora users. We will use AI to generate and iterate on the prototype, drawing directly on the research to inform the service logic, user flows, and content. The prototype will not attempt to replicate the full service stack — it will model what the experience should feel like from the user's perspective, showing how prerequisites like NIN retrieval could be surfaced proactively, how the digital and physical channels could connect clearly, and how the service communicates with users at every stage. We will test the prototype with diaspora users from the participant pool, gather structured feedback, and iterate before presenting findings and the final prototype as part of the full report.</p>
+    </div>
+    <div class="phase-status"><span class="badge badge-upcoming">Upcoming</span></div>
+  </div>
+  <div class="communicate-card">
+    <div class="comm-num">Ongoing</div>
+    <div>
+      <span class="phase-name">Communicate</span>
+      <p class="phase-desc">Progressive public release at each milestone. We do not wait for completion before sharing. Each milestone produces a public output: written, visual, and short form media. A final report consolidates all findings.</p>
+    </div>
+    <div class="phase-status"><span class="badge badge-ongoing">Active</span></div>
+  </div>
+</div>
+
+
+<h2>Research methods</h2>
+
+<p>We will use the following methods, among others.</p>
+
+<ul>
+  <li><strong>Semi structured interviews.</strong> 1:1 qualitative interviews with diaspora Nigerians who have attempted passport renewal or application in the last year. Target: 20 to 30 participants across geographies and experience types.</li>
+  <li><strong>Structured surveys.</strong> We deploy these via social media and diaspora networks to gather quantitative data on wait times, costs, abandonment rates, and service satisfaction. Target: 200+ responses.</li>
+  <li><strong>Service walkthrough testing.</strong> We walk through the official digital channels as a user would, documenting the actual state of portals, directories, and information as encountered. All walkthroughs are timestamped.</li>
+  <li><strong>Expert interviews.</strong> Where we can arrange access: embassy and consulate staff, NIS officials, NIMC representatives, accredited FEPs, and civil society organisations working with the diaspora.</li>
+  <li><strong>Social media and community listening.</strong> A structured review of existing accounts on X, TikTok, LinkedIn, Reddit, and diaspora Facebook and WhatsApp group content.</li>
+</ul>
+
+
+<h2>Participant strategy</h2>
+
+<p>The study seeks to represent the genuine diversity of diaspora passport experiences. Participant recruitment will prioritise variation across the following dimensions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dimension</th>
+      <th>Who to target</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Country of residence</td>
+      <td>Primary: US, UK, Canada · Secondary: Europe and West African countries</td>
+    </tr>
+    <tr>
+      <td>Type of application</td>
+      <td>Renewal · First time application · Replacement (lost or expired)</td>
+    </tr>
+    <tr>
+      <td>NIN status</td>
+      <td>Had NIN and knew it · Had NIN but could not retrieve it · Never had NIN</td>
+    </tr>
+    <tr>
+      <td>Outcome from the process</td>
+      <td>Completed successfully · Partially completed · Abandoned entirely · In progress</td>
+    </tr>
+    <tr>
+      <td>Time since last attempt</td>
+      <td>1 to 3 months · 3 to 6 months · 6 to 12 months</td>
+    </tr>
+    <tr>
+      <td>Demographics</td>
+      <td>Age range, gender, socioeconomic background, digital access level</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We will recruit participants through diaspora community networks, social media, professional networks, and existing connections. Participation is voluntary and anonymous unless explicitly consented to. We will not compensate participants in the initial phase.</p>
+
+
+<h2>Milestones and outputs</h2>
+
+<p>This is a live and active problem. We will share findings in the open, gathering feedback to enrich our understanding and feed into the next stage of the study. Working in the open lets us involve the users who are navigating this experience in real time and put a live timestamp to an evolving study.</p>
+
+<p>The problem is not academic or theoretical: people are actively losing jobs, missing flights, and paying hundreds of dollars in avoidable costs right now. Sharing what we know, as we know it, is both an ethical stance and a practical one. We release output at every milestone. Each release also functions as a call for more participants and collaborators.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Milestone</th>
+      <th>Focus</th>
+      <th>Format</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Problem framing and impact analysis</td>
+      <td>Initial journey map, problem statement, landscape overview, citizen cost, government cost, economic cost. We make the business case for reform.</td>
+      <td>Written post · Journey map · Infographic · Short form explainer video</td>
+    </tr>
+    <tr>
+      <td>Service architecture</td>
+      <td>Current state process map, institutional dependency diagram, infrastructure gap analysis</td>
+      <td>Written post · Service blueprint · Explainer video</td>
+    </tr>
+    <tr>
+      <td>User insights</td>
+      <td>Synthesised themes from interviews and surveys. Real stories, real data.</td>
+      <td>Written post · Data visualisation · Video feature</td>
+    </tr>
+    <tr>
+      <td>Design opportunities</td>
+      <td>Prioritised opportunity areas. What can change now vs what requires policy reform.</td>
+      <td>Full report · Recommendations · Short form video</td>
+    </tr>
+    <tr>
+      <td>Final report</td>
+      <td>Consolidated findings, methodology, and evidence base — suitable for academic and policy audiences</td>
+      <td>Long form report (PDF) · Summary post</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Principles for public communication</h3>
+<ul>
+  <li><strong>Plain language first.</strong> Every milestone output must be understandable to a Nigerian who has no background in service design or UX research. The methodology informs the rigour; it does not have to dominate the communication.</li>
+  <li><strong>Protect participants.</strong> We publish no identifiable information without explicit consent. Stories are anonymised by default.</li>
+  <li><strong>Show the work.</strong> Journey maps, service blueprints, dependency diagrams — visual artefacts make the problem legible in a way prose alone cannot.</li>
+  <li><strong>Acknowledge what we do not know.</strong> We label uncertainty. The study does not overstate its evidence base.</li>
+  <li><strong>Invite response.</strong> Each public release is a solicitation — for more participants, for corrections, for complementary research, and for response from the institutions responsible for the service.</li>
+</ul>
+
+
+<h2>Key terms</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Term</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NIN</td>
+      <td>National Identification Number. An 11 digit unique identifier issued by NIMC. Now mandatory for all Nigerian passport applications.</td>
+    </tr>
+    <tr>
+      <td>NIMC</td>
+      <td>National Identity Management Commission. The body responsible for NIN registration and management.</td>
+    </tr>
+    <tr>
+      <td>NIS</td>
+      <td>Nigeria Immigration Service. The body responsible for passport issuance and immigration services.</td>
+    </tr>
+    <tr>
+      <td>FEP</td>
+      <td>Front End Partner. Accredited organisations authorised by NIMC to facilitate NIN enrolment for Nigerians in the diaspora.</td>
+    </tr>
+    <tr>
+      <td>CONPAS</td>
+      <td>Contactless Biometric Passport Application System. NIS's mobile app based passport renewal system for eligible diaspora applicants.</td>
+    </tr>
+    <tr>
+      <td>UCD</td>
+      <td>User Centred Design. A design methodology that prioritises the needs, behaviours, and contexts of end users throughout the design process.</td>
+    </tr>
+    <tr>
+      <td>Service blueprint</td>
+      <td>A research artefact that maps the end to end service from the user's perspective alongside the backstage systems and processes that support (or fail) it.</td>
+    </tr>
+    <tr>
+      <td>Diaspora</td>
+      <td>For this study: Nigerian citizens currently residing outside Nigeria, including those with dual nationality.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="doc-footer">
+  <span>The Diaspora Passport Study — Project Brief v1.1 — May 2026</span>
+  <span>Independent research. Public interest.</span>
+</div>
+
+</body>
+</html>
